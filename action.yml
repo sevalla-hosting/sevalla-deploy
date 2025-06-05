@@ -39,7 +39,7 @@ inputs:
     required: false
 runs:
   using: 'node20'
-  main: 'src/index.js'
+  main: 'src/cli.js'
 branding:
   icon: 'upload-cloud'
   color: 'gray-dark'

@@ -29,9 +29,11 @@ const initDeployment = async () => {
 const maxRetries = 1000
 const pollStatus = async (deploymentId, retry = 0) => {
   await new Promise((res) => setTimeout(res, 5000))
+  /* c8 ignore start */
   if (retry >= maxRetries) {
     throw new Error('Max retries reached while polling deployment status')
   }
+  /* c8 ignore stop */
 
   const sevallaToken = core.getInput('sevalla-token')
   const resp = await fetch(`https://api.sevalla.com/v2/deployments/${deploymentId}`, {
@@ -70,3 +72,5 @@ module.exports.deployStaticSite = async () => {
     }
   }
 }
+
+module.exports._test = { initDeployment, pollStatus }
