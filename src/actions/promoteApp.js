@@ -15,14 +15,10 @@ const pollStatus = async (deploymentId, retry = 0) => {
   }
   const data = await resp.json()
   const status = data?.deployment?.status
+  const app_id = data?.deployment?.app_id
 
-  core.info(`Deployment status: ${status}`)
-  if ([
-    'success',
-    'failed',
-    'cancelled',
-    'skipped',
-  ].includes(status)) {
+  core.info(`Deployment status on app (id: ${app_id}): ${status}`)
+  if (['success', 'failed', 'cancelled', 'skipped'].includes(status)) {
     if (status !== 'success') {
       throw new Error(`Deployment failed: status is ${status}`)
     }
@@ -57,11 +53,11 @@ module.exports.promoteApp = async () => {
     }
     const data = await resp.json()
 
-    const deploymentIds = data?.promote?.map(p => p.deployment_id) || []
+    const deploymentIds = data?.promote?.map((p) => p.deployment_id) || []
     core.setOutput('deployment-ids', deploymentIds)
 
     if (waitForFinish && deploymentIds) {
-      await Promise.all(deploymentIds.map(deploymentId => pollStatus(deploymentId)))
+      await Promise.all(deploymentIds.map((deploymentId) => pollStatus(deploymentId)))
     }
 
     core.info('Promotion triggered successfully!')

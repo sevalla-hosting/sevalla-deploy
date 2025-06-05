@@ -15,7 +15,7 @@ const initDeployment = async () => {
         throw new Error(`Deploy hook request failed: ${resp.status}`)
       }
       const data = await resp.json()
-      return data?.deploymentId
+      return data?.deployment?.id
     } else {
       if (!sevallaToken || !appId) throw new Error('sevalla-token and app-id are required')
       const params = {

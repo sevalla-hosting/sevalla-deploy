@@ -31,48 +31,64 @@
 ### Deploy an App
 
 ```yaml
-- uses: sevalla-hosting/sevalla-deploy@v1.0.0
-  with:
-    action: deploy-app
-    sevalla-token: ${{ secrets.SEVALLA_TOKEN }}
-    app-id: app_123
-    branch: main
-    is-restart: false
-    wait-for-finish: true
+jobs:
+  deploy-app:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: sevalla-hosting/sevalla-deploy@v1.0.4
+        with:
+          action: deploy-app
+          sevalla-token: ${{ secrets.SEVALLA_TOKEN }}
+          app-id: app_123
+          branch: main
+          is-restart: false
+          wait-for-finish: true
 ```
 
 ### Deploy via Deploy Hook
 
 ```yaml
-- uses: sevalla-hosting/sevalla-deploy@v1.0.0
-  with:
-    action: deploy-app
-    deploy-hook-url: https://api.sevalla.com/hooks/xyz
-    wait-for-finish: true
+jobs:
+  deploy-app:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: sevalla-hosting/sevalla-deploy@v1.0.4
+        with:
+          action: deploy-app
+          deploy-hook-url: https://api.sevalla.com/hooks/xyz
+          wait-for-finish: true
 ```
 
 ### Promote an App
 
 ```yaml
-- uses: sevalla-hosting/sevalla-deploy@v1.0.0
-  with:
-    action: promote-app
-    sevalla-token: ${{ secrets.SEVALLA_TOKEN }}
-    source-app-id: app_123
-    target-app-ids: app_456,app_789
-    wait-for-finish: true
+jobs:
+  promote-app:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: sevalla-hosting/sevalla-deploy@v1.0.4
+        with:
+          action: promote-app
+          sevalla-token: ${{ secrets.SEVALLA_TOKEN }}
+          source-app-id: app_123
+          target-app-ids: app_456,app_789
+          wait-for-finish: true
 ```
 
 ### Deploy a Static Site
 
 ```yaml
-- uses: sevalla-hosting/sevalla-deploy@v1.0.0
-  with:
-    action: deploy-static-site
-    sevalla-token: ${{ secrets.SEVALLA_TOKEN }}
-    static-site-id: ss_123
-    branch: main
-    wait-for-finish: true
+jobs:
+  deploy-static-site:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: sevalla-hosting/sevalla-deploy@v1.0.4
+        with:
+          action: deploy-static-site
+          sevalla-token: ${{ secrets.SEVALLA_TOKEN }}
+          static-site-id: ss_123
+          branch: main
+          wait-for-finish: true
 ```
 
 ## Outputs
