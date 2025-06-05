@@ -19,6 +19,7 @@ const initDeployment = async () => {
     } else {
       if (!sevallaToken || !appId) throw new Error('sevalla-token and app-id are required')
       const params = {
+        app_id: appId,
         branch: branch ? branch : undefined,
         isRestart: isRestart !== undefined ? isRestart : undefined,
         dockerImage: dockerImage ? dockerImage : undefined,
