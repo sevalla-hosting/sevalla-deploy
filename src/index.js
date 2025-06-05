@@ -3,7 +3,7 @@ const { deployApp } = require('./actions/deployApp')
 const { promoteApp } = require('./actions/promoteApp')
 const { deployStaticSite } = require('./actions/deployStaticSite')
 
-async function run() {
+module.exports.run = async () => {
   try {
     const action = core.getInput('action')
 
@@ -20,5 +20,3 @@ async function run() {
     core.setFailed(error.message)
   }
 }
-
-module.exports.run = run
