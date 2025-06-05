@@ -6,13 +6,13 @@ const initDeployment = async () => {
     const staticSiteId = core.getInput('static-site-id')
     const branch = core.getInput('branch')
 
-    const res = await fetch(`https://api.sevalla.com/v2/static-sites/${staticSiteId}/deployments`, {
+    const res = await fetch(`https://api.sevalla.com/v2/static-sites/deployments`, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${sevallaToken}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ branch }),
+      body: JSON.stringify({ branch, static_site_id: staticSiteId }),
     })
 
     if (!res.ok) {
@@ -29,25 +29,27 @@ const initDeployment = async () => {
 const maxRetries = 1000
 const pollStatus = async (deploymentId, retry = 0) => {
   await new Promise((res) => setTimeout(res, 5000))
-  /* c8 ignore start */
   if (retry >= maxRetries) {
     throw new Error('Max retries reached while polling deployment status')
   }
-  /* c8 ignore stop */
 
   const sevallaToken = core.getInput('sevalla-token')
-  const resp = await fetch(`https://api.sevalla.com/v2/deployments/${deploymentId}`, {
+  const resp = await fetch(`https://api.sevalla.com/v2/static-sites/deployments/${deploymentId}`, {
     headers: { Authorization: `Bearer ${sevallaToken}` },
   })
   if (!resp.ok) {
     return pollStatus(deploymentId, retry + 1)
   }
   const data = await resp.json()
-  const status = data?.status
+  const status = data?.deployment?.status
 
   core.info(`Deployment status: ${status}`)
-  if (['finished', 'failed', 'error', 'succeeded'].includes(status)) {
-    if (status !== 'succeeded' && status !== 'finished') {
+  if ([
+    'success',
+    'failed',
+    'cancelled',
+  ].includes(status)) {
+    if (status !== 'success') {
       throw new Error(`Deployment failed: status is ${status}`)
     }
   } else {
@@ -72,5 +74,3 @@ module.exports.deployStaticSite = async () => {
     }
   }
 }
-
-module.exports._test = { initDeployment, pollStatus }
