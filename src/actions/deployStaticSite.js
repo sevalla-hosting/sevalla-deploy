@@ -16,7 +16,7 @@ const initDeployment = async () => {
     })
 
     if (!res.ok) {
-      throw new Error(`HTTP error! status: ${res.status}`)
+      throw new Error(`HTTP error! status: ${res.status} - ${res.statusText}`)
     }
 
     const data = await res.json()
@@ -44,11 +44,7 @@ const pollStatus = async (deploymentId, retry = 0) => {
   const status = data?.deployment?.status
 
   core.info(`Deployment status: ${status}`)
-  if ([
-    'success',
-    'failed',
-    'cancelled',
-  ].includes(status)) {
+  if (['success', 'failed', 'cancelled'].includes(status)) {
     if (status !== 'success') {
       throw new Error(`Deployment failed: status is ${status}`)
     }

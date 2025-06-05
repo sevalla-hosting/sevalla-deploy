@@ -18,7 +18,11 @@ const initDeployment = async () => {
       return data?.deploymentId
     } else {
       if (!sevallaToken || !appId) throw new Error('sevalla-token and app-id are required')
-      const params = { branch, isRestart, dockerImage }
+      const params = {
+        branch: branch ? branch : undefined,
+        isRestart: isRestart !== undefined ? isRestart : undefined,
+        dockerImage: dockerImage ? dockerImage : undefined,
+      }
       const resp = await fetch(`https://api.sevalla.com/v2/applications/deployments`, {
         method: 'POST',
         headers: {
@@ -28,7 +32,7 @@ const initDeployment = async () => {
         body: JSON.stringify(params),
       })
       if (!resp.ok) {
-        throw new Error(`Deployment request failed: ${resp.status}`)
+        throw new Error(`Deployment request failed: ${resp.status} - ${resp.statusText}`)
       }
       const data = await resp.json()
       return data.deployment.id
@@ -55,12 +59,7 @@ const pollStatus = async (deploymentId, retry = 0) => {
   const status = data?.deployment?.status
 
   core.info(`Deployment status: ${status}`)
-  if ([
-    'success',
-    'failed',
-    'cancelled',
-    'skipped',
-  ].includes(status)) {
+  if (['success', 'failed', 'cancelled', 'skipped'].includes(status)) {
     if (status !== 'success') {
       throw new Error(`Deployment failed: status is ${status}`)
     }
@@ -80,7 +79,7 @@ module.exports.deployApp = async () => {
 
   if (waitForFinish && deploymentId) {
     try {
-      await pollStatus()
+      await pollStatus(deploymentId)
     } catch (e) {
       core.setFailed(e.message)
     }
