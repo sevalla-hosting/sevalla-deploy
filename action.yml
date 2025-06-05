@@ -1,0 +1,45 @@
+name: 'Sevalla Deploy'
+description: 'Deploy and promote Sevalla apps or static sites from your workflow.'
+author: 'Peter Kota'
+inputs:
+  action:
+    description: 'deploy-app | promote-app | deploy-static-site'
+    required: true
+  sevalla-token:
+    description: 'Sevalla API token'
+    required: false
+  app-id:
+    description: 'Sevalla App ID'
+    required: false
+  static-site-id:
+    description: 'Sevalla Static Site ID'
+    required: false
+  source-app-id:
+    description: 'Source App ID (for promotion)'
+    required: false
+  target-app-ids:
+    description: 'Target App IDs (comma separated, for promotion)'
+    required: false
+  branch:
+    description: 'Git branch to deploy'
+    required: false
+  docker-image:
+    description: 'Docker image to deploy'
+    required: false
+  is-restart:
+    description: 'Restart app without building it (true/false)'
+    required: false
+    default: 'false'
+  wait-for-finish:
+    description: 'Wait for deployment to finish (true/false)'
+    required: false
+    default: 'false'
+  deploy-hook-url:
+    description: 'Sevalla Deploy Hook URL (alternative to token/app-id)'
+    required: false
+runs:
+  using: 'node20'
+  main: 'src/index.js'
+branding:
+  icon: 'upload-cloud'
+  color: 'gray-dark'

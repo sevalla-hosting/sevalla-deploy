@@ -1,0 +1,20 @@
+{
+  "name": "sevalla-github-action",
+  "version": "1.0.0",
+  "description": "A GitHub Action to deploy and promote Sevalla apps and static sites.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "@actions/core": "^1.11.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.28.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.4.1",
+    "jest": "^29.7.0",
+    "prettier": "^3.5.3",
+    "semantic-release": "^24.2.5"
+  }
+}
