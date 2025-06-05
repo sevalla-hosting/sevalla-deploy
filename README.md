@@ -35,7 +35,7 @@ jobs:
   deploy-app:
     runs-on: ubuntu-latest
     steps:
-      - uses: sevalla-hosting/sevalla-deploy@v1.0.4
+      - uses: sevalla-hosting/sevalla-deploy@v1.0.5
         with:
           action: deploy-app
           sevalla-token: ${{ secrets.SEVALLA_TOKEN }}
@@ -52,7 +52,7 @@ jobs:
   deploy-app:
     runs-on: ubuntu-latest
     steps:
-      - uses: sevalla-hosting/sevalla-deploy@v1.0.4
+      - uses: sevalla-hosting/sevalla-deploy@v1.0.5
         with:
           action: deploy-app
           deploy-hook-url: https://api.sevalla.com/hooks/xyz
@@ -66,7 +66,7 @@ jobs:
   promote-app:
     runs-on: ubuntu-latest
     steps:
-      - uses: sevalla-hosting/sevalla-deploy@v1.0.4
+      - uses: sevalla-hosting/sevalla-deploy@v1.0.5
         with:
           action: promote-app
           sevalla-token: ${{ secrets.SEVALLA_TOKEN }}
@@ -82,7 +82,7 @@ jobs:
   deploy-static-site:
     runs-on: ubuntu-latest
     steps:
-      - uses: sevalla-hosting/sevalla-deploy@v1.0.4
+      - uses: sevalla-hosting/sevalla-deploy@v1.0.5
         with:
           action: deploy-static-site
           sevalla-token: ${{ secrets.SEVALLA_TOKEN }}
