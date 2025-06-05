@@ -31,7 +31,7 @@
 ### Deploy an App
 
 ```yaml
-- uses: sevalla-hosting/sevalla-github-action@v1
+- uses: sevalla-hosting/sevalla-deploy@v1.0.0
   with:
     action: deploy-app
     sevalla-token: ${{ secrets.SEVALLA_TOKEN }}
@@ -44,7 +44,7 @@
 ### Deploy via Deploy Hook
 
 ```yaml
-- uses: sevalla-hosting/sevalla-github-action@v1
+- uses: sevalla-hosting/sevalla-deploy@v1.0.0
   with:
     action: deploy-app
     deploy-hook-url: https://api.sevalla.com/hooks/xyz
@@ -54,7 +54,7 @@
 ### Promote an App
 
 ```yaml
-- uses: sevalla-hosting/sevalla-github-action@v1
+- uses: sevalla-hosting/sevalla-deploy@v1.0.0
   with:
     action: promote-app
     sevalla-token: ${{ secrets.SEVALLA_TOKEN }}
@@ -66,7 +66,7 @@
 ### Deploy a Static Site
 
 ```yaml
-- uses: sevalla-hosting/sevalla-github-action@v1
+- uses: sevalla-hosting/sevalla-deploy@v1.0.0
   with:
     action: deploy-static-site
     sevalla-token: ${{ secrets.SEVALLA_TOKEN }}
