@@ -38,6 +38,7 @@ const pollStatus = async (deploymentId, retry = 0) => {
     headers: { Authorization: `Bearer ${sevallaToken}` },
   })
   if (!resp.ok) {
+    core.info(`Failed to fetch deployment status (id: ${deploymentId}) - ${resp.status}; ${resp.statusText}`)
     return pollStatus(deploymentId, retry + 1)
   }
   const data = await resp.json()
@@ -59,7 +60,7 @@ module.exports.deployStaticSite = async () => {
   const deploymentId = await initDeployment()
   if (deploymentId) {
     core.setOutput('deployment-id', deploymentId)
-    core.info('Deployment triggered successfully!')
+    core.info(`Deployment (id: ${deploymentId}) triggered successfully!`)
   }
 
   if (waitForFinish && deploymentId) {

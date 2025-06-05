@@ -11,6 +11,7 @@ const pollStatus = async (deploymentId, retry = 0) => {
     headers: { Authorization: `Bearer ${sevallaToken}` },
   })
   if (!resp.ok) {
+    core.info(`Failed to fetch deployment status (id: ${deploymentId}) - ${resp.status}; ${resp.statusText}`)
     return pollStatus(deploymentId, retry + 1)
   }
   const data = await resp.json()
@@ -49,7 +50,7 @@ module.exports.promoteApp = async () => {
       }),
     })
     if (!resp.ok) {
-      throw new Error(`Promotion request failed: ${resp.status}`)
+      throw new Error(`Promotion request failed: ${resp.status} - ${resp.statusText}`)
     }
     const data = await resp.json()
 
@@ -60,7 +61,7 @@ module.exports.promoteApp = async () => {
       await Promise.all(deploymentIds.map((deploymentId) => pollStatus(deploymentId)))
     }
 
-    core.info('Promotion triggered successfully!')
+    core.info(`Promotion triggered successfully! Deployment ids: ${deploymentIds.join(', ')}`)
   } catch (err) {
     core.setFailed(err.message)
   }
