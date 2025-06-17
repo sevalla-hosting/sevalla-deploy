@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الشريك السعودي - قيمة مضافة لمؤسستك</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap');
+        
+        :root {
+            --primary-color: #006F4E;
+            --secondary-color: #D4AF37;
+            --dark-color: #1A2C37;
+            --light-color: #f8f9fa;
+            --accent-color: #E8F3F1;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            line-height: 1.6;
+            background-color: var(--light-color);
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            background-color: #fff;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 25px;
+        }
+        
+        .nav-links a {
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 16px;
+            text-decoration: none;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-links a.active {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background: #005a3f;
+            transform: translateY(-3px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: #fff;
+        }
+        
+        .btn-gold {
+            background: var(--secondary-color);
+        }
+        
+        .btn-gold:hover {
+            background: #c09c30;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(to left, rgba(0,111,78,0.9), rgba(0,111,78,0.7)), url('https://images.unsplash.com/photo-1582653291997-079a1c04e5a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 100vh;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin-top: 70px;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background-color: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .hero-badge i {
+            margin-left: 8px;
+            color: var(--secondary-color);
+        }
+        
+        /* Value Proposition */
+        .value-prop {
+            padding: 100px 0;
+            background-color: #fff;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            font-size: 18px;
+            color: #666;
+            max-width: 700px;
+            margin: 20px auto 0;
+        }
+        
+        .value-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .value-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-color: var(--primary-color);
+        }
+        
+        .value-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .value-card:hover:before {
+            width: 100%;
+            opacity: 0.05;
+        }
+        
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .value-card:hover .value-icon {
+            background-color: var(--primary-color);
+            transform: rotateY(180deg);
+        }
+        
+        .value-icon i {
+            font-size: 32px;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .value-card:hover .value-icon i {
+            color: #fff;
+            transform: rotateY(180deg);
+        }
+        
+        .value-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+            transition: all 0.3s ease;
+        }
+        
+        .value-card:hover h3 {
+            color: var(--primary-color);
+        }
+        
+        .value-card p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background-color: var(--accent-color);
+        }
+        
+        .services-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .services-content h2 {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+        
+        .services-content p {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        
+        .service-list {
+            margin-top: 30px;
+        }
+        
+        .service-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 20px;
+            flex-shrink: 0;
+        }
+        
+        .service-icon i {
+            color: #fff;
+            font-size: 20px;
+        }
+        
+        .service-text h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .service-text p {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 0;
+        }
+        
+        .services-image {
+            position: relative;
+        }
+        
+        .services-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .services-image:before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--secondary-color);
+            border-radius: 10px;
+            top: 20px;
+            right: -20px;
+            z-index: -1;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background-color: #fff;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-bottom: 3px solid transparent;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-bottom: 3px solid var(--primary-color);
+        }
+        
+        .feature-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--accent-color);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 20px;
+        }
+        
+        .feature-icon i {
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+        
+        .feature-title h3 {
+            font-size: 20px;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+        }
+        
+        .feature-title span {
+            font-size: 14px;
+            color: #888;
+        }
+        
+        .feature-body p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .feature-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+        
+        .feature-tag {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .feature-more {
+            color: var(--primary-color);
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .feature-more i {
+            margin-right: 5px;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-more:hover i {
+            transform: translateX(-5px);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background-color: var(--dark-color);
+            color: #fff;
+        }
+        
+        .testimonials .section-title h2 {
+            color: #fff;
+        }
+        
+        .testimonials .section-title p {
+            color: #ccc;
+        }
+        
+        .testimonial-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            padding: 30px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .testimonial-quote {
+            font-size: 60px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: rgba(255,255,255,0.1);
+            font-family: serif;
+        }
+        
+        .testimonial-text {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-left: 15px;
+            border: 2px solid var(--secondary-color);
+        }
+        
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .testimonial-info h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .testimonial-info span {
+            font-size: 14px;
+            color: #ccc;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 80px 0;
+            background: linear-gradient(to left, var(--primary-color), #004d36);
+            color: #fff;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark-color);
+            color: #fff;
+            padding: 70px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            color: #fff;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            transition: color 0.3s;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-links a i {
+            margin-left: 10px;
+            font-size: 14px;
+        }
+        
+        .footer-links a:hover {
+            color: #fff;
+        }
+        
+        .footer-contact li {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+        
+        .footer-contact-icon {
+            color: var(--secondary-color);
+            margin-left: 15px;
+            font-size: 18px;
+        }
+        
+        .footer-newsletter p {
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+        
+        .newsletter-form {
+            display: flex;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        .newsletter-btn {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .newsletter-btn:hover {
+            background-color: #005a3f;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+            color: #ccc;
+        }
+        
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.05);
+            color: #fff;
+            border-radius: 50%;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .services-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .services-image {
+                margin-top: 50px;
+                order: 2;
+            }
+            
+            .services-content {
+                order: 1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .section-title h2 {
+                font-size: 30px;
+            }
+            
+            .services-content h2 {
+                font-size: 30px;
+            }
+            
+            .cta h2 {
+                font-size: 30px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <svg width="200" height="70" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+                    <text x="150" y="80" text-anchor="middle" style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 60px; letter-spacing: -2px;">
+                        <tspan fill="#006F4E">SP</tspan><tspan fill="#D4AF37">G</tspan><tspan fill="#006F4E">I</tspan>
+                    </text>
+                    <line x1="75" y1="100" x2="225" y2="100" stroke="#006F4E" stroke-width="2" />
+                    <text x="150" y="140" text-anchor="middle" style="font-family: 'Tajawal', sans-serif; font-weight: 700; font-size: 24px; fill: #006F4E;">
+                        الشريك السعودي للاستثمار
+                    </text>
+                    <path d="M75,95 L65,95 L65,105 L75,105" fill="none" stroke="#D4AF37" stroke-width="1.5" />
+                    <path d="M225,95 L235,95 L235,105 L225,105" fill="none" stroke="#D4AF37" stroke-width="1.5" />
+                    <circle cx="225" cy="50" r="3" fill="#D4AF37" />
+                </svg>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="active">الرئيسية</a></li>
+                <li><a href="#value">القيمة المضافة</a></li>
+                <li><a href="#services">خدماتنا</a></li>
+                <li><a href="#features">مميزاتنا</a></li>
+                <li><a href="#testimonials">آراء العملاء</a></li>
+                <li><a href="#contact" class="btn btn-outline">تواصل معنا</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge animate"><i class="fas fa-star"></i> منظومة علاقات مبنية على القيم والفرص المشتركة</div>
+            <h1 class="animate delay-1">الشريك الاستراتيجي لنمو مؤسستك</h1>
+            <p class="animate delay-2">لسنا مجرد مستشارين، بل شريك استراتيجي يساعد مؤسستك على النمو والتوسع من خلال شبكة نخبوية من العلاقات وفرص استثمارية واعدة في قطاعات متنوعة</p>
+            <div class="animate delay-3">
+                <a href="#value" class="btn">اكتشف القيمة المضافة</a>
+                <a href="#contact" class="btn btn-outline">تواصل معنا</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition Section -->
+    <section id="value" class="value-prop">
+        <div class="container">
+            <div class="section-title">
+                <h2>لماذا الشريك السعودي؟</h2>
+                <p>نقدم قيمة مضافة حقيقية لمؤسستك من خلال منظومة متكاملة من الخدمات والفرص</p>
+            </div>
+            <div class="value-cards">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>وصول مباشر لصناع القرار</h3>
+                    <p>نوفر لك وصولاً مباشراً إلى صناع القرار في المؤسسات الناشئة والشركات الواعدة، بعيداً عن المسارات البيروقراطية المعقدة.</p>
+                    <a href="#" class="feature-more">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-kaaba"></i>
+                    </div>
+                    <h3>فرص جاهزة في الحج والعمرة</h3>
+                    <p>نقدم فرصاً استثمارية جاهزة في قطاع الحج والعمرة، بما يشمل الخدمات اللوجستية، التقنية، الإعاشة، والإسكان.</p>
+                    <a href="#" class="feature-more">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>دعم النمو والتوسع</h3>
+                    <p>نساعد مؤسستك على تحقيق النمو والتوسع من خلال استراتيجيات تسويقية ذكية وفرص شراكة استراتيجية مع جهات فاعلة.</p>
+                    <a href="#" class="feature-more">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="services-container">
+                <div class="services-content">
+                    <h2>خدماتنا الاستراتيجية للمؤسسات</h2>
+                    <p>نقدم باقة متكاملة من الخدمات الاستراتيجية المصممة خصيصاً لتلبية احتياجات المؤسسات الطموحة التي تسعى للنمو والتوسع في السوق السعودي.</p>
+                    <div class="service-list">
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="service-text">
+                                <h4>بناء شبكة علاقات نخبوية</h4>
+                                <p>نساعدك على بناء شبكة علاقات مع نخبة من رواد الأعمال وصناع القرار في القطاعين الحكومي والخاص.</p>
+                            </div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div class="service-text">
+                                <h4>تنسيق الشراكات الاستراتيجية</h4>
+                                <p>نعمل على تنسيق شراكات استراتيجية بين مؤسستك والجهات الفاعلة في السوق لتحقيق أهداف النمو المشتركة.</p>
+                            </div>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="service-text">
+                                <h4>استشارات استراتيجية متخصصة</h4>
+                                <p>نقدم استشارات استراتيجية متخصصة تساعد مؤسستك على تجاوز التحديات وتحقيق أهدافها بكفاءة.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn">تواصل معنا الآن</a>
+                </div>
+                <div class="services-image">
+                    <img src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="خدماتنا">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>ماذا نقدم لمؤسستك؟</h2>
+                <p>خدمات متكاملة تراعي مستهدفات المؤسسات التي ترغب بالنمو والتوسع</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <div class="feature-title">
+                            <h3>تحديد الفرص الاستثمارية</h3>
+                            <span>استراتيجية النمو</span>
+                        </div>
+                    </div>
+                    <div class="feature-body">
+                        <p>نساعد مؤسستك على تحديد الفرص الاستثمارية المناسبة في قطاعات واعدة، مع التركيز على قطاع الحج والعمرة الذي يشهد نمواً متسارعاً.</p>
+                    </div>
+                    <div class="feature-footer">
+                        <span class="feature-tag">استثمار</span>
+                        <a href="#" class="feature-more">المزيد <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon">
+                            <i class="fas fa-users-cog"></i>
+                        </div>
+                        <div class="feature-title">
+                            <h3>تنسيق الشراكات التشغيلية</h3>
+                            <span>تكامل الأعمال</span>
+                        </div>
+                    </div>
+                    <div class="feature-body">
+                        <p>نعمل على تنسيق شراكات تشغيلية بين مؤسستك والجهات المتخصصة لتقديم خدمات متكاملة في مجالات متنوعة كالنقل والإسكان والتقنية.</p>
+                    </div>
+                    <div class="feature-footer">
+                        <span class="feature-tag">شراكات</span>
+                        <a href="#" class="feature-more">المزيد <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon">
+                            <i class="fas fa-file-signature"></i>
+                        </div>
+                        <div class="feature-title">
+                            <h3>تسهيل الإجراءات الحكومية</h3>
+                            <span>العلاقات الحكومية</span>
+                        </div>
+                    </div>
+                    <div class="feature-body">
+                        <p>نساعد مؤسستك في تسهيل الإجراءات الحكومية والحصول على التراخيص اللازمة من خلال شبكة علاقاتنا مع الجهات الحكومية المختلفة.</p>
+                    </div>
+                    <div class="feature-footer">
+                        <span class="feature-tag">تراخيص</span>
+                        <a href="#" class="feature-more">المزيد <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <div class="feature-title">
+                            <h3>التسويق المشترك</h3>
+                            <span>استراتيجيات التسويق</span>
+                        </div>
+                    </div>
+                    <div class="feature-body">
+                        <p>نقدم خدمات التسويق المشترك بين أعضاء شبكتنا، مما يساهم في تعزيز الوصول إلى شرائح جديدة من العملاء وزيادة الحصة السوقية.</p>
+                    </div>
+                    <div class="feature-footer">
+                        <span class="feature-tag">تسويق</span>
+                        <a href="#" class="feature-more">المزيد <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="feature-title">
+                            <h3>الاستشارات الاستراتيجية</h3>
+                            <span>تطوير الأعمال</span>
+                        </div>
+                    </div>
+                    <div class="feature-body">
+                        <p>نقدم استشارات استراتيجية متخصصة تساعد مؤسستك على تطوير نموذج أعمالها وتحسين كفاءة عملياتها التشغيلية وزيادة ربحيتها.</p>
+                    </div>
+                    <div class="feature-footer">
+                        <span class="feature-tag">استشارات</span>
+                        <a href="#" class="feature-more">المزيد <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="feature-title">
+                            <h3>تنظيم الفعاليات النخبوية</h3>
+                            <span>بناء العلاقات</span>
+                        </div>
+                    </div>
+                    <div class="feature-body">
+                        <p>ننظم فعاليات نخبوية تجمع نخبة من رواد الأعمال وصناع القرار، مما يتيح فرصاً للتواصل وبناء علاقات استراتيجية تدعم نمو مؤسستك.</p>
+                    </div>
+                    <div class="feature-footer">
+                        <span class="feature-tag">فعاليات</span>
+                        <a href="#" class="feature-more">المزيد <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>آراء عملائنا</h2>
+                <p>نفخر بثقة عملائنا وشركائنا في خدماتنا ودورنا في دعم نمو أعمالهم</p>
+            </div>
+            <div class="testimonial-cards">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">الشريك السعودي كان له دور محوري في توسيع نطاق أعمالنا في قطاع الحج والعمرة. ساعدونا في بناء شراكات استراتيجية مع مزودي خدمات متميزين، مما ساهم في تقديم تجربة متكاملة لعملائنا.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">
+                            <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="25" cy="25" r="25" fill="#f0f0f0"/>
+                                <circle cx="25" cy="20" r="10" fill="#ccc"/>
+                                <path d="M25,30 C15,30 10,40 10,45 L40,45 C40,40 35,30 25,30 Z" fill="#ccc"/>
+                            </svg>
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>محمد العتيبي</h4>
+                            <span>الرئيس التنفيذي، شركة رحلات الإيمان</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">بفضل الاستشارات الاستراتيجية التي قدمها لنا الشريك السعودي، تمكنا من تطوير نموذج أعمالنا وزيادة إيراداتنا بنسبة 40% خلال عام واحد. شبكة العلاقات التي وفروها لنا كانت ذات قيمة كبيرة.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">
+                            <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="25" cy="25" r="25" fill="#f0f0f0"/>
+                                <circle cx="25" cy="20" r="10" fill="#ccc"/>
+                                <path d="M25,30 C15,30 10,40 10,45 L40,45 C40,40 35,30 25,30 Z" fill="#ccc"/>
+                            </svg>
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>سارة الزهراني</h4>
+                            <span>مؤسس، شركة تقنيات المستقبل</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">الفعاليات النخبوية التي ينظمها الشريك السعودي فتحت لنا أبواباً جديدة للتعاون مع شركات رائدة في السوق. التنسيق الذي قاموا به ساعدنا في الحصول على تراخيص مهمة بوقت قياسي.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">
+                            <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="25" cy="25" r="25" fill="#f0f0f0"/>
+                                <circle cx="25" cy="20" r="10" fill="#ccc"/>
+                                <path d="M25,30 C15,30 10,40 10,45 L40,45 C40,40 35,30 25,30 Z" fill="#ccc"/>
+                            </svg>
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>فهد القحطاني</h4>
+                            <span>مدير التطوير، مجموعة الخليج للاستثمار</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>انضم إلى شبكة الشريك السعودي اليوم</h2>
+            <p>كن جزءاً من منظومة متكاملة تدعم نمو مؤسستك وتفتح لك آفاقاً جديدة للتوسع والنجاح</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-gold">تواصل معنا الآن</a>
+                <a href="#" class="btn btn-outline">تعرف على خدماتنا</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>الشريك السعودي</h3>
+                    <p>منظومة علاقات مبنية على القيم والفرص المشتركة، نسعى لدعم نمو المؤسسات وتعزيز فرص نجاحها في السوق السعودي.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-angle-left"></i> الرئيسية</a></li>
+                        <li><a href="#value"><i class="fas fa-angle-left"></i> القيمة المضافة</a></li>
+                        <li><a href="#services"><i class="fas fa-angle-left"></i> خدماتنا</a></li>
+                        <li><a href="#features"><i class="fas fa-angle-left"></i> مميزاتنا</a></li>
+                        <li><a href="#testimonials"><i class="fas fa-angle-left"></i> آراء العملاء</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>خدماتنا</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-angle-left"></i> بناء شبكة علاقات نخبوية</a></li>
+                        <li><a href="#"><i class="fas fa-angle-left"></i> تنسيق الشراكات الاستراتيجية</a></li>
+                        <li><a href="#"><i class="fas fa-angle-left"></i> الاستشارات الاستراتيجية</a></li>
+                        <li><a href="#"><i class="fas fa-angle-left"></i> تسهيل الإجراءات الحكومية</a></li>
+                        <li><a href="#"><i class="fas fa-angle-left"></i> تنظيم الفعاليات النخبوية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>تواصل معنا</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <div class="footer-contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>طريق الملك فهد، حي العليا، الرياض، المملكة العربية السعودية</div>
+                        </li>
+                        <li>
+                            <div class="footer-contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>+966 11 234 5678</div>
+                        </li>
+                        <li>
+                            <div class="footer-contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>info@saudipartner.com</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>النشرة الإخبارية</h3>
+                    <p>اشترك في نشرتنا الإخبارية للحصول على آخر المستجدات والفرص الاستثمارية</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="البريد الإلكتروني" required>
+                        <button type="submit" class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 الشريك السعودي للاستثمار. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animation on Scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.value-card, .feature-card, .testimonial-card');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial styles for animation
+        document.querySelectorAll('.value-card, .feature-card, .testimonial-card').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'all 0.6s ease-out';
+        });
+        
+        // Run animation on load and scroll
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
+        
+        // Active Navigation Link
+        const sections = document.querySelectorAll('section');
+        const navItems = document.querySelectorAll('.nav-links a');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (current && item.getAttribute('href') === `#${current}`) {
+                    item.classList.add('active');
+                } else if (!current && item.getAttribute('href') === '#') {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

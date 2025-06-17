@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الشريك السعودي - قيمة مضافة لمؤسستك</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap');
+        
+:root {
+        --primary-color: #006F4E;
+        --secondary-color: #D4AF37;
+        --dark-color: #1A2C37;
+        --light-color: #f8f9fa;
+        --accent-color: #E8F3F1;
+        --gradient-primary: linear-gradient(135deg, #006F4E 0%, #004d36 100%);
+        --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #AA8C2C 100%);
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Tajawal', sans-serif;
+        line-height: 1.6;
+        background-color: #f5f5f5;
+        color: #333;
+    }
+    
+    .presentation-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background-color: #fff;
+        box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+        overflow: hidden;
+    }
+    
+    /* Cover Slide */
+    .cover-slide {
+        height: 100vh;
+        background: var(--gradient-primary);
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        padding: 40px;
+    }
+    
+    .cover-slide::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        opacity: 0.1;
+    }
+    
+    .logo-container {
+        margin-bottom: 40px;
+    }
+    
+    .cover-title {
+        font-size: 56px;
+        font-weight: 800;
+        margin-bottom: 20px;
+        position: relative;
+    }
+    
+    .cover-title::after {
+        content: '';
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background-color: var(--secondary-color);
+    }
+    
+    .cover-subtitle {
+        font-size: 28px;
+        font-weight: 300;
+        margin-bottom: 40px;
+        max-width: 800px;
+    }
+    
+    .cover-decoration {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 120px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='1' d='M0,224L60,213.3C120,203,240,181,360,181.3C480,181,600,203,720,213.3C840,224,960,224,1080,202.7C1200,181,1320,139,1380,117.3L1440,96L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+        background-size: cover;
+        background-position: center;
+    }
+    
+    /* About Slide */
+    .slide {
+        min-height: 100vh;
+        padding: 80px 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .slide-header {
+        margin-bottom: 60px;
+        position: relative;
+    }
+    
+    .slide-title {
+        font-size: 42px;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+        font-weight: 700;
+    }
+    
+    .slide-subtitle {
+        font-size: 22px;
+        color: #666;
+        max-width: 800px;
+    }
+    
+    .about-content {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+    }
+    
+    .about-text {
+        flex: 1;
+    }
+    
+    .about-image {
+        flex: 1;
+        position: relative;
+    }
+    
+    .about-image img {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    
+    .about-image::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 3px solid var(--secondary-color);
+        border-radius: 10px;
+        top: 20px;
+        right: -20px;
+        z-index: -1;
+    }
+    
+    .about-box {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 30px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        border-right: 4px solid var(--primary-color);
+    }
+    
+    .about-box h3 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        color: var(--dark-color);
+    }
+    
+    .about-box p {
+        color: #666;
+        font-size: 18px;
+        line-height: 1.8;
+    }
+    
+    /* Goals Slide */
+    .goals-slide {
+        background-color: var(--accent-color);
+    }
+    
+    .goals-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+    
+    .goal-card {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .goal-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    
+    .goal-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100px;
+        height: 100px;
+        background: var(--gradient-primary);
+        opacity: 0.1;
+        border-radius: 0 0 0 100%;
+    }
+    
+    .goal-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    
+    .goal-icon {
+        width: 60px;
+        height: 60px;
+        background: var(--gradient-primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 20px;
+        flex-shrink: 0;
+    }
+    
+    .goal-icon i {
+        font-size: 24px;
+        color: #fff;
+    }
+    
+    .goal-title {
+        font-size: 22px;
+        color: var(--primary-color);
+        margin-bottom: 5px;
+    }
+    
+    .goal-subtitle {
+        color: #666;
+        font-size: 16px;
+    }
+    
+    .goal-body {
+        flex: 1;
+    }
+    
+    .goal-body p {
+        color: #666;
+        font-size: 18px;
+        line-height: 1.8;
+        margin-bottom: 20px;
+    }
+    
+    .goal-footer {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+    }
+    
+    .goal-tag {
+        display: inline-block;
+        background-color: var(--accent-color);
+        color: var(--primary-color);
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        margin-left: 10px;
+    }
+    
+    /* Services Slide */
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    
+    .service-card {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
+        border-bottom: 3px solid transparent;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        border-bottom: 3px solid var(--primary-color);
+    }
+    
+    .service-header {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 20px;
+    }
+    
+    .service-icon {
+        width: 60px;
+        height: 60px;
+        background-color: var(--accent-color);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 20px;
+        flex-shrink: 0;
+    }
+    
+    .service-icon i {
+        font-size: 24px;
+        color: var(--primary-color);
+    }
+    
+    .service-title h3 {
+        font-size: 22px;
+        color: var(--dark-color);
+        margin-bottom: 5px;
+    }
+    
+    .service-title span {
+        font-size: 16px;
+        color: #888;
+    }
+    
+    .service-body {
+        flex: 1;
+    }
+    
+    .service-body p {
+        color: #666;
+        line-height: 1.8;
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
+    
+    .service-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid #eee;
+        padding-top: 15px;
+        margin-top: auto;
+    }
+    
+    .service-benefit {
+        font-weight: 600;
+        color: var(--primary-color);
+    }
+    
+    /* Benefits Slide */
+    .benefits-slide {
+        background-color: var(--dark-color);
+        color: #fff;
+    }
+    
+    .benefits-slide .slide-title {
+        color: #fff;
+    }
+    
+    .benefits-slide .slide-subtitle {
+        color: #ccc;
+    }
+    
+    .benefits-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 40px;
+        background-color: rgba(255,255,255,0.05);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    
+    .benefits-table th, .benefits-table td {
+        padding: 20px;
+        text-align: right;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .benefits-table th {
+        background-color: rgba(0,0,0,0.2);
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--secondary-color);
+    }
+    
+    .benefits-table tr:last-child td {
+        border-bottom: none;
+    }
+    
+    .benefits-table td:first-child {
+        font-weight: 600;
+        color: #fff;
+    }
+    
+    .benefits-table td:last-child {
+        color: #ccc;
+    }
+    
+    .benefits-table tr:hover td {
+        background-color: rgba(255,255,255,0.05);
+    }
+    
+    /* Models Slide */
+    .models-slide {
+        background-color: #fff;
+    }
+    
+    .models-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+    
+    .model-card {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        border: 1px solid #eee;
+        transition: all 0.3s ease;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .model-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        border-color: var(--primary-color);
+    }
+    
+    .model-header {
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .model-icon {
+        width: 60px;
+        height: 60px;
+        background: var(--gradient-primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    
+    .model-icon i {
+        font-size: 24px;
+        color: #fff;
+    }
+    
+    .model-title {
+        font-size: 22px;
+        color: var(--primary-color);
+        margin-bottom: 10px;
+    }
+    
+    .model-body {
+        flex: 1;
+    }
+    
+    .model-list {
+        list-style: none;
+        margin-bottom: 20px;
+    }
+    
+    .model-list li {
+        margin-bottom: 15px;
+        padding-right: 30px;
+        position: relative;
+        color: #666;
+        font-size: 16px;
+    }
+    
+    .model-list li::before {
+        content: '\f00c';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        color: var(--primary-color);
+        position: absolute;
+        right: 0;
+        top: 2px;
+    }
+    
+    /* Contact Slide */
+    .contact-slide {
+        background: var(--gradient-primary);
+        color: #fff;
+        text-align: center;
+    }
+    
+    .contact-slide .slide-title {
+        color: #fff;
+    }
+    
+    .contact-slide .slide-subtitle {
+        color: rgba(255,255,255,0.8);
+        margin: 0 auto 40px;
+    }
+    
+    .contact-info {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 40px;
+        margin-bottom: 60px;
+    }
+    
+    .contact-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(255,255,255,0.1);
+        padding: 30px;
+        border-radius: 10px;
+        min-width: 250px;
+        transition: all 0.3s ease;
+    }
+    
+    .contact-item:hover {
+        transform: translateY(-10px);
+        background-color: rgba(255,255,255,0.2);
+    }
+    
+    .contact-icon {
+        width: 70px;
+        height: 70px;
+        background-color: rgba(255,255,255,0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    
+    .contact-icon i {
+        font-size: 30px;
+        color: var(--secondary-color);
+    }
+    
+    .contact-label {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: rgba(255,255,255,0.8);
+    }
+    
+    .contact-value {
+        font-size: 20px;
+        font-weight: 600;
+    }
+    
+    .cta-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 40px;
+    }
+    
+    .btn {
+        display: inline-block;
+        padding: 15px 40px;
+        border-radius: 50px;
+        font-size: 18px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+    
+    .btn-primary {
+        background: var(--gradient-gold);
+        color: #fff;
+        box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+    }
+    
+    .btn-primary:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
+    }
+    
+    .btn-outline {
+        background: transparent;
+        color: #fff;
+        border: 2px solid #fff;
+    }
+    
+    .btn-outline:hover {
+        background-color: rgba(255,255,255,0.1);
+        transform: translateY(-5px);
+    }
+    
+    /* Utilities */
+    .badge {
+        display: inline-block;
+        padding: 5px 15px;
+        background-color: var(--secondary-color);
+        color: #fff;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+    
+    .badge i {
+        margin-left: 5px;
+    }
+    
+    .section-divider {
+        height: 4px;
+        background: var(--gradient-primary);
+        margin: 40px 0;
+        border-radius: 2px;
+    }
+    
+    .highlight {
+        color: var(--secondary-color);
+        font-weight: 700;
+    }
+    
+    .text-center {
+        text-align: center;
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+        .about-content {
+            flex-direction: column;
+        }
+        
+        .goals-container {
+            grid-template-columns: 1fr;
+        }
+        
+        .services-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .models-container {
+            grid-template-columns: 1fr;
+        }
+        
+        .slide {
+            padding: 60px 40px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .cover-title {
+            font-size: 42px;
+        }
+        
+        .cover-subtitle {
+            font-size: 22px;
+        }
+        
+        .slide-title {
+            font-size: 36px;
+        }
+        
+        .slide {
+            padding: 40px 30px;
+        }
+        
+        .contact-info {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .contact-item {
+            width: 100%;
+        }
+        
+        .cta-buttons {
+            flex-direction: column;
+        }
+    }
+    
+    /* Print Styles */
+    @media print {
+        .slide {
+            page-break-after: always;
+            min-height: auto;
+        }
+        
+        .cover-slide {
+            height: auto;
+        }
+        
+        .cover-decoration {
+            display: none;
+        }
+        
+        .btn {
+            border: 1px solid #000;
+            padding: 10px 20px;
+        }
+        
+        .goal-card::before,
+        .about-image::before {
+            display: none;
+        }
+        
+        .contact-item {
+            border: 1px solid #ccc;
+        }
+    }
+    
+    /* Animation */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .animate {
+        animation: fadeInUp 0.6s ease-out forwards;
+    }
+    
+    .delay-1 {
+        animation-delay: 0.2s;
+    }
+    
+    .delay-2 {
+        animation-delay: 0.4s;
+    }
+    
+    .delay-3 {
+        animation-delay: 0.6s;
+    }
+    
+    /* Page Navigation */
+    .page-nav {
+        position: fixed;
+        top: 50%;
+        left: 20px;
+        transform: translateY(-50%);
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .page-nav-item {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: rgba(255,255,255,0.5);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .page-nav-item.active {
+        background-color: var(--secondary-color);
+        transform: scale(1.3);
+    }
+    
+    .page-nav-item:hover {
+        background-color: var(--secondary-color);
+    }
+    
+    /* Slide Counter */
+    .slide-counter {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        font-size: 14px;
+        color: rgba(255,255,255,0.7);
+        font-weight: 500;
+    }
+</style>
+    <!-- About Slide -->
+    <section class="slide" id="slide-2">
+        <div class="slide-header">
+            <div class="badge"><i class="fas fa-info-circle"></i> من نحن</div>
+            <h2 class="slide-title">الشريك السعودي</h2>
+            <p class="slide-subtitle">تجمّع نخبوي يضم أصحاب مناصب تنفيذية ورواد أعمال في شركات ومؤسسات سعودية ناشئة أو قائمة</p>
+        </div>
+        
+        <div class="about-content">
+            <div class="about-text">
+                <div class="about-box">
+                    <h3>بناء فرص تشاركية مباشرة</h3>
+                    <p>نعمل على خلق فرص تشاركية مباشرة بين المؤسسات الأعضاء، مما يتيح استغلال الموارد المشتركة وتحقيق أهداف النمو بكفاءة أعلى وتكلفة أقل.</p>
+                </div>
+                
+                <div class="about-box">
+                    <h3>دعم أهداف النمو عبر شبكة علاقات استراتيجية</h3>
+                    <p>نوفر شبكة علاقات استراتيجية تساعد المؤسسات على تحقيق أهدافها في النمو والتوسع من خلال الوصول المباشر إلى صناع القرار وأصحاب الخبرة.</p>
+                </div>
+                
+                <div class="about-box">
+                    <h3>تسهيل التعاون، التشبيك، والتسويق التكاملي</h3>
+                    <p>نسهل عمليات التعاون والتشبيك بين الأعضاء، ونقدم فرصاً للتسويق التكاملي الذي يعزز الوصول إلى شرائح جديدة من العملاء بتكلفة أقل.</p>
+                </div>
+            </div>
+            
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="الشريك السعودي">
+            </div>
+        </div>
+        <div class="slide-counter">2/6</div>
+    </section>
+    
+    <!-- Goals Slide -->
+    <section class="slide goals-slide" id="slide-3">
+        <div class="slide-header">
+            <div class="badge"><i class="fas fa-bullseye"></i> أهدافنا</div>
+            <h2 class="slide-title">أهداف الشريك السعودي</h2>
+            <p class="slide-subtitle">نسعى لتحقيق مجموعة من الأهداف الاستراتيجية التي تدعم نمو المؤسسات وتعزز فرص نجاحها</p>
+        </div>
+        
+        <div class="goals-container">
+            <div class="goal-card">
+                <div class="goal-header">
+                    <div class="goal-icon">
+                        <i class="fas fa-kaaba"></i>
+                    </div>
+                    <div>
+                        <h3 class="goal-title">فرص استثمار وتشغيل موسمية</h3>
+                        <p class="goal-subtitle">هدف رئيسي</p>
+                    </div>
+                </div>
+                <div class="goal-body">
+                    <p>خلق فرص استثمار وتشغيل موسمية في قطاع الحج والعمرة، من خلال تنسيق الجهود بين الأعضاء وتوفير حلول متكاملة تلبي احتياجات هذا القطاع الواعد.</p>
+                </div>
+                <div class="goal-footer">
+                    <span class="goal-tag">استثمار</span>
+                    <span class="goal-tag">تشغيل</span>
+                </div>
+            </div>
+            
+            <div class="goal-card">
+                <div class="goal-header">
+                    <div class="goal-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div>
+                        <h3 class="goal-title">بناء تحالفات استراتيجية</h3>
+                        <p class="goal-subtitle">هدف رئيسي</p>
+                    </div>
+                </div>
+                <div class="goal-body">
+                    <p>بناء تحالفات استراتيجية بين أعضاء المجموعة، مما يتيح تبادل الخبرات والموارد وتحقيق أهداف مشتركة تعود بالنفع على جميع الأطراف.</p>
+                </div>
+                <div class="goal-footer">
+                    <span class="goal-tag">تحالفات</span>
+                    <span class="goal-tag">شراكات</span>
+                </div>
+            </div>
+            
+            <div class="goal-card">
+                <div class="goal-header">
+                    <div class="goal-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div>
+                        <h3 class="goal-title">تمكين التوسع السريع</h3>
+                        <p class="goal-subtitle">هدف رئيسي</p>
+                    </div>
+                </div>
+                <div class="goal-body">
+                    <p>تمكين المؤسسات من التوسع السريع من خلال الشراكات الذكية، وتوفير فرص للدخول في أسواق جديدة بدعم من شبكة علاقات موثوقة ومتخصصة.</p>
+                </div>
+                <div class="goal-footer">
+                    <span class="goal-tag">توسع</span>
+                    <span class="goal-tag">نمو</span>
+                </div>
+            </div>
+            
+            <div class="goal-card">
+                <div class="goal-header">
+                    <div class="goal-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div>
+                        <h3 class="goal-title">تبادل الخبرات والاستشارات</h3>
+                        <p class="goal-subtitle">هدف ثانوي</p>
+                    </div>
+                </div>
+                <div class="goal-body">
+                    <p>تسهيل تبادل الخبرات والاستشارات بين أعضاء المجموعة، مما يساهم في تطوير الأعمال وتحسين الأداء وتجنب الأخطاء الشائعة في مجال الأعمال.</p>
+                </div>
+                <div class="goal-footer">
+                    <span class="goal-tag">خبرات</span>
+                    <span class="goal-tag">استشارات</span>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">3/6</div>
+    </section>
+    
+    <!-- Services Slide -->
+    <section class="slide" id="slide-4">
+        <div class="slide-header">
+            <div class="badge"><i class="fas fa-cogs"></i> خدماتنا</div>
+            <h2 class="slide-title">خدمات الشريك السعودي للمؤسسات</h2>
+            <p class="slide-subtitle">نقدم مجموعة متنوعة من الخدمات المصممة خصيصاً لتلبية احتياجات المؤسسات الطموحة</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="service-title">
+                        <h3>خدمة "المسار السريع للفرص"</h3>
+                        <span>ربط مباشر وفعال</span>
+                    </div>
+                </div>
+                <div class="service-body">
+                    <p>ربط مباشر بين المؤسسة وشركات أخرى مستعدة للشراكة/الاستثمار/الاستفادة. مثال: مؤسسة تقنية ترغب بالدخول في قطاع الحج → الشريك السعودي يوفر طرف لوجستي جاهز للتشغيل المشترك.</p>
+                </div>
+                <div class="service-footer">
+                    <span class="service-benefit">الفائدة: تسريع النمو</span>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="service-title">
+                        <h3>خدمة "تمثيل الفرص"</h3>
+                        <span>حضور نيابة عنك</span>
+                    </div>
+                </div>
+                <div class="service-body">
+                    <p>حضور نيابة عن المؤسسة في اجتماعات أو تفاهمات أولية مع شركات أخرى. تفتح أبواب التعاون دون أن تهدر المؤسسة وقتها وجهدها في تصفية العروض.</p>
+                </div>
+                <div class="service-footer">
+                    <span class="service-benefit">الفائدة: توفير الوقت والجهد</span>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <div class="service-title">
+                        <h3>خدمة "شبكة الإعلان المشتركة"</h3>
+                        <span>ترويج غير مباشر</span>
+                    </div>
+                </div>
+                <div class="service-body">
+                    <p>نشر عن خدمات المؤسسة ضمن شبكة أعضاء الشريك، بطريقة ترويج غير مباشرة (محتوى + توصيات). بأسلوب "مَن جرّب يرشح"، وليس إعلانات مدفوعة مباشرة.</p>
+                </div>
+                <div class="service-footer">
+                    <span class="service-benefit">الفائدة: زيادة المصداقية والوصول</span>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="service-title">
+                        <h3>خدمة "المستشار الظل"</h3>
+                        <span>دعم استراتيجي</span>
+                    </div>
+                </div>
+                <div class="service-body">
+                    <p>تتيح للمؤسسة عضوًا في الشريك السعودي كمستشار استراتيجي غير رسمي (مدفوع أو مجاني ضمن اشتراك). خصوصًا في مراحل القرارات الصعبة (شريك؟ توسع؟ سوق جديد؟).</p>
+                </div>
+                <div class="service-footer">
+                    <span class="service-benefit">الفائدة: قرارات أكثر حكمة</span>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="service-title">
+                        <h3>خدمة "إدارة تحالفات قصيرة الأجل"</h3>
+                        <span>تنسيق مشاريع مشتركة</span>
+                    </div>
+                </div>
+                <div class="service-body">
+                    <p>الشريك ينظم تحالفًا مؤقتًا بين المؤسسة وأعضاء آخرين لتحقيق هدف قصير (مشروع حج، تطبيق، مناقصة). أنت كمشغل رئيسي، والبقية كمنفذين.</p>
+                </div>
+                <div class="service-footer">
+                    <span class="service-benefit">الفائدة: تنفيذ مشاريع أكبر</span>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">4/6</div>
+    </section>
+    
+    <!-- Benefits Slide -->
+    <section class="slide benefits-slide" id="slide-5">
+        <div class="slide-header">
+            <div class="badge"><i class="fas fa-check-circle"></i> المستهدفات</div>
+            <h2 class="slide-title">كيف نراعي مستهدفات المؤسسات؟</h2>
+            <p class="slide-subtitle">نفهم احتياجات المؤسسات التي ترغب بالنمو ونقدم حلولاً تساعدها على تحقيق أهدافها</p>
+        </div>
+        
+        <table class="benefits-table">
+            <thead>
+                <tr>
+                    <th>مستهدف المؤسسة</th>
+                    <th>كيف يساعد الشريك السعودي؟</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>التوسع في أسواق جديدة</td>
+                    <td>يوفر شبكة علاقات جاهزة للدخول الجماعي أو الاستفادة من خبرات السوق المستهدف.</td>
+                </tr>
+                <tr>
+                    <td>بناء سمعة مهنية</td>
+                    <td>من خلال التواجد مع قادة آخرين، يظهر أنك "في الدائرة"، ويُروج عنك كمؤسسة موثوقة.</td>
+                </tr>
+                <tr>
+                    <td>تقليل التكاليف</td>
+                    <td>التعاون المشترك (co-marketing، co-development، خدمات متبادلة) يقلل من التكاليف.</td>
+                </tr>
+                <tr>
+                    <td>اختبار أفكار جديدة</td>
+                    <td>نقاشات المجموعة وجلسات الطاولة تعطي تغذية راجعة حقيقية من قادة تجارب.</td>
+                </tr>
+                <tr>
+                    <td>جذب مستثمرين</td>
+                    <td>ممكن ترتيب عروض مخصصة للمستثمرين أو إدخالهم كمستشارين ضمن المجموعة.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="slide-counter">5/6</div>
+    </section>
+    
+    <!-- Models Slide -->
+    <section class="slide models-slide" id="slide-6">
+        <div class="slide-header">
+            <div class="badge"><i class="fas fa-cubes"></i> نماذج الخدمات</div>
+            <h2 class="slide-title">نماذج خدمات جاهزة للمؤسسات</h2>
+            <p class="slide-subtitle">مجموعة متنوعة من الخدمات الجاهزة التي يمكن تقديمها للمؤسسات لدعم نموها وتطورها</p>
+        </div>
+        
+        <div class="models-container">
+            <div class="model-card">
+                <div class="model-header">
+                    <div class="model-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="model-title">تنفيذيًا</h3>
+                </div>
+                <div class="model-body">
+                    <ul class="model-list">
+                        <li>"بنك علاقات جاهز" تستفيد منه المؤسسة عند الحاجة</li>
+                        <li>تنسيق جلسات مغلقة مع شركاء محتملين</li>
+                        <li>استشارات دخول السوق الموازي (كحج وعمرة)</li>
+                        <li>تسويق شبكي داخل المجتمع النخبوي</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="model-card">
+                <div class="model-header">
+                    <div class="model-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="model-title">إداريًا</h3>
+                </div>
+                <div class="model-body">
+                    <ul class="model-list">
+                        <li>مشاركة خبرات الأعضاء في تطوير نموذج العمل</li>
+                        <li>تهيئة خطط توسيع الأعمال بما يناسب فكر السوق المحلي والدولي</li>
+                        <li>تجهيز المؤسسة للدخول في تحالفات أو طرح مشاريع</li>
+                        <li>استشارات استراتيجية لتطوير الأعمال</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="model-card">
+                <div class="model-header">
+                    <div class="model-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3 class="model-title">دعائيًا</h3>
+                </div>
+                <div class="model-body">
+                    <ul class="model-list">
+                        <li>ربط المؤسسة بأعضاء مؤثرين يشاركون تجربتهم معها</li>
+                        <li>إنشاء محتوى تسويقي جماعي (Case study مشترك أو فيديو موحد)</li>
+                        <li>حملة "شريك مع الشريك" يتم فيها تسليط الضوء على جهة معينة</li>
+                        <li>تنظيم فعاليات مشتركة لزيادة الظهور والتواجد</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="slide-counter">6/6</div>
+    </section>
+    
+    <!-- Contact Slide -->
+    <section class="slide contact-slide" id="slide-7">
+        <div class="slide-header">
+            <div class="badge"><i class="fas fa-envelope"></i> تواصل معنا</div>
+            <h2 class="slide-title">انضم إلى الشريك السعودي اليوم</h2>
+            <p class="slide-subtitle">كن جزءاً من منظومة متكاملة تدعم نمو مؤسستك وتفتح لك آفاقاً جديدة للتوسع والنجاح</p>
+        </div>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="contact-label">اتصل بنا</div>
+                <div class="contact-value">+966 11 234 5678</div>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-label">البريد الإلكتروني</div>
+                <div class="contact-value">info@saudipartner.com</div>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-label">العنوان</div>
+                <div class="contact-value">الرياض، المملكة العربية السعودية</div>
+            </div>
+        </div>
+        
+        <div class="cta-buttons">
+            <a href="#" class="btn btn-primary">طلب عضوية</a>
+            <a href="#" class="btn btn-outline">تحميل الملف التعريفي</a>
+        </div>
+        <div class="slide-counter">7/7</div>
+    </section>
+</div>
+
+<!-- Page Navigation -->
+<div class="page-nav">
+    <div class="page-nav-item active" data-slide="slide-1"></div>
+    <div class="page-nav-item" data-slide="slide-2"></div>
+    <div class="page-nav-item" data-slide="slide-3"></div>
+    <div class="page-nav-item" data-slide="slide-4"></div>
+    <div class="page-nav-item" data-slide="slide-5"></div>
+    <div class="page-nav-item" data-slide="slide-6"></div>
+    <div class="page-nav-item" data-slide="slide-7"></div>
+</div>
+
+<script>
+    // Smooth Scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop,
+                    behavior: 'smooth'
+                });
+                
+                // Update active nav item
+                document.querySelectorAll('.page-nav-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                document.querySelector(`.page-nav-item[data-slide="${targetId.substring(1)}"]`).classList.add('active');
+            }
+        });
+    });
+    
+    // Page Navigation
+    document.querySelectorAll('.page-nav-item').forEach(item => {
+        item.addEventListener('click', function() {
+            const slideId = this.getAttribute('data-slide');
+            const targetElement = document.getElementById(slideId);
+            
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop,
+                    behavior: 'smooth'
+                });
+                
+                // Update active nav item
+                document.querySelectorAll('.page-nav-item').forEach(navItem => {
+                    navItem.classList.remove('active');
+                });
+                
+                this.classList.add('active');
+            }
+        });
+    });
+    
+    // Scroll Spy
+    window.addEventListener('scroll', function() {
+        const scrollPosition = window.scrollY;
+        
+        document.querySelectorAll('.slide').forEach((section, index) => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            
+            if (scrollPosition >= sectionTop - 100 && scrollPosition < sectionTop + sectionHeight - 100) {
+                document.querySelectorAll('.page-nav-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                document.querySelectorAll('.page-nav-item')[index].classList.add('active');
+            }
+        });
+    });
+    
+    // Print functionality
+    document.querySelector('.btn-outline').addEventListener('click', function(e) {
+        if (this.textContent.includes('تحميل')) {
+            e.preventDefault();
+            window.print();
+        }
+    });
+</script>

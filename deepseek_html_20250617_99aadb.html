@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مجموعة الشريك السعودي للإستثمار</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            direction: rtl;
+        }
+
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #fff;
+            color: #006F4E;
+        }
+
+        .btn-primary:hover {
+            background-color: #f0f0f0;
+        }
+
+        .btn-outline {
+            border: 2px solid #fff;
+            color: #fff;
+        }
+
+        .btn-outline:hover {
+            background-color: #fff;
+            color: #006F4E;
+        }
+
+        .btn-light {
+            background-color: #fff;
+            color: #006F4E;
+        }
+
+        .btn-light:hover {
+            background-color: #f0f0f0;
+        }
+
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .section-divider {
+            width: 80px;
+            height: 4px;
+            background-color: #006F4E;
+            margin: 16px auto 0;
+        }
+
+        /* Header */
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+        }
+
+        .logo {
+            width: 180px;
+            height: 60px;
+        }
+
+        .logo-letters {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 28px;
+            letter-spacing: -1px;
+        }
+
+        .logo-arabic {
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .primary-color {
+            color: #006F4E;
+        }
+
+        .gold-accent {
+            color: #D4AF37;
+        }
+
+        .desktop-nav {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-link {
+            color: #555;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            right: 0;
+            background-color: #006F4E;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #006F4E;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #006F4E 0%, #00916E 100%);
+            color: #fff;
+            padding: 80px 0;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-text {
+            flex: 1;
+            padding-left: 40px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            margin-bottom: 32px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .hero-image {
+            flex: 1;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 64px 0;
+            background-color: #fff;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+        }
+
+        .stat-card {
+            background-color: #f5f5f5;
+            padding: 24px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #006F4E;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: #666;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+            background-color: #f5f5f5;
+        }
+
+        .about-content {
+            display: flex;
+            gap: 40px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.75rem;
+            color: #333;
+            margin-bottom: 16px;
+        }
+
+        .about-text p {
+            color: #666;
+            margin-bottom: 24px;
+        }
+
+        .values-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .value-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .value-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #e6f4f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 12px;
+            color: #006F4E;
+        }
+
+        .about-card-wrapper {
+            flex: 1;
+            position: relative;
+        }
+
+        .about-card-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 100%;
+            height: 100%;
+            background-color: #e6f4f0;
+            border-radius: 8px;
+            z-index: 0;
+        }
+
+        .about-card {
+            position: relative;
+            background-color: #fff;
+            padding: 32px;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+
+        .about-card-item {
+            margin-bottom: 24px;
+        }
+
+        .about-card-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-card-item h4 {
+            font-size: 1.25rem;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .about-card-item p {
+            color: #666;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .service-card {
+            background-color: #f5f5f5;
+            padding: 32px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            background-color: #e6f4f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            color: #006F4E;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            color: #333;
+            margin-bottom: 16px;
+        }
+
+        .service-card p {
+            color: #666;
+        }
+
+        /* Investments Section */
+        .investments-section {
+            padding: 80px 0;
+            background-color: #f5f5f5;
+        }
+
+        .investments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .investment-card {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .investment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .investment-icon {
+            height: 160px;
+            background-color: #e6f4f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #006F4E;
+        }
+
+        .investment-content {
+            padding: 24px;
+        }
+
+        .investment-content h3 {
+            font-size: 1.25rem;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .investment-content p {
+            color: #666;
+            margin-bottom: 16px;
+        }
+
+        .investment-progress {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .progress-label {
+            font-size: 0.875rem;
+            color: #777;
+        }
+
+        .progress-bar {
+            width: 100px;
+            height: 8px;
+            background-color: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: #006F4E;
+            border-radius: 4px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #006F4E 0%, #00916E 100%);
+            color: #fff;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 32px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .contact-content {
+            display: flex;
+            gap: 40px;
+        }
+
+        .contact-form-container {
+            flex: 1;
+            background-color: #f5f5f5;
+            padding: 32px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-form-container h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 24px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #006F4E;
+            box-shadow: 0 0 0 2px rgba(0, 111, 78, 0.2);
+        }
+
+        .form-success {
+            display: none;
+            margin-top: 24px;
+            padding: 16px;
+            background-color: #e6f4f0;
+            color: #006F4E;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .form-success.show {
+            display: block;
+        }
+
+        .contact-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .contact-info-card {
+            background-color: #f5f5f5;
+            padding: 32px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-info-card h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 24px;
+        }
+
+        .contact-info-items {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .contact-info-item {
+            display: flex;
+        }
+
+        .contact-info-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #e6f4f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 16px;
+            color: #006F4E;
+        }
+
+        .contact-info-text h4 {
+            font-size: 1.125rem;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .contact-info-text p {
+            color: #666;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-link {
+            width: 48px;
+            height: 48px;
+            background-color: #e6f4f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #006F4E;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: #006F4E;
+            color: #fff;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 64px 0 32px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-about {
+            grid-column: span 2;
+        }
+
+        .footer-logo {
+            margin-bottom: 16px;
+        }
+
+        .footer-about p {
+            color: #bbb;
+            margin-bottom: 16px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-social a {
+            color: #bbb;
+            transition: color 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            color: #fff;
+        }
+
+        .footer-links h3 {
+            font-size: 1.25rem;
+            margin-bottom: 16px;
+        }
+
+        .footer-links ul {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        .footer-newsletter h3 {
+            font-size: 1.25rem;
+            margin-bottom: 16px;
+        }
+
+        .footer-newsletter p {
+            color: #bbb;
+            margin-bottom: 16px;
+        }
+
+        .newsletter-form {
+            display: flex;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .newsletter-form button {
+            background-color: #006F4E;
+            color: #fff;
+            border: none;
+            padding: 0 16px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #00916E;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid #444;
+            color: #bbb;
+        }
+
+        /* Mobile Menu */
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .mobile-menu-toggle button {
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                color: #006F4E;
+                cursor: pointer;
+            }
+            
+            .mobile-menu {
+                display: none;
+                flex-direction: column;
+                padding: 16px 0;
+            }
+            
+            .mobile-menu.show {
+                display: flex;
+            }
+            
+            .mobile-menu a {
+                padding: 12px 0;
+                color: #555;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .mobile-menu a:last-child {
+                border-bottom: none;
+            }
+            
+            .hero-content {
+                flex-direction: column;
+            }
+            
+            .hero-text {
+                padding-left: 0;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-content {
+                flex-direction: column;
+            }
+            
+            .footer-about {
+                grid-column: span 1;
+            }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 576px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .investments-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo {
+                width: 150px;
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="sticky-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <svg viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+                        <!-- الحروف الإنجليزية SPGI -->
+                        <text x="150" y="40" text-anchor="middle" class="logo-letters" 
+                              style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 28px; letter-spacing: -1px;">
+                            <tspan fill="#006F4E">SP</tspan><tspan fill="#D4AF37">G</tspan><tspan fill="#006F4E">I</tspan>
+                        </text>
+                        
+                        <!-- خط أفقي فاصل -->
+                        <line x1="75" y1="50" x2="225" y2="50" stroke="#006F4E" stroke-width="2" />
+                        
+                        <!-- الاسم بالعربي -->
+                        <text x="150" y="80" text-anchor="middle" 
+                              style="font-family: 'Tajawal', sans-serif; font-weight: 700; font-size: 14px; fill: #006F4E;">
+                            الشريك السعودي للاستثمار
+                        </text>
+                        
+                        <!-- عناصر زخرفية بسيطة -->
+                        <path d="M75,45 L65,45 L65,55 L75,55" fill="none" stroke="#D4AF37" stroke-width="1.5" />
+                        <path d="M225,45 L235,45 L235,55 L225,55" fill="none" stroke="#D4AF37" stroke-width="1.5" />
+                        
+                        <!-- نقطة ذهبية فوق حرف I -->
+                        <circle cx="225" cy="25" r="2" fill="#D4AF37" />
+                    </svg>
+                </div>
+                
+                <nav class="desktop-nav">
+                    <a href="#home" class="nav-link">الرئيسية</a>
+                    <a href="#about" class="nav-link">من نحن</a>
+                    <a href="#services" class="nav-link">خدماتنا</a>
+                    <a href="#investments" class="nav-link">استثماراتنا</a>
+                    <a href="#contact" class="nav-link">اتصل بنا</a>
+                </nav>
+                
+                <div class="mobile-menu-toggle">
+                    <button id="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu">
+                <a href="#home">الرئيسية</a>
+                <a href="#about">من نحن</a>
+                <a href="#services">خدماتنا</a>
+                <a href="#investments">استثماراتنا</a>
+                <a href="#contact">اتصل بنا</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>نبني مستقبلاً مستداماً للاستثمار</h1>
+                    <p>نقدم حلول استثمارية مبتكرة تلبي احتياجات عملائنا وتحقق أهدافهم المالية</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">تواصل معنا</a>
+                        <a href="#services" class="btn btn-outline">خدماتنا</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="50" y="50" width="400" height="300" rx="20" fill="#ffffff" opacity="0.1"/>
+                        <circle cx="250" cy="200" r="120" fill="#ffffff" opacity="0.1"/>
+                        <path d="M150,250 L350,250 L250,100 Z" fill="#ffffff" opacity="0.2"/>
+                        <path d="M150,150 L350,150 L250,300 Z" fill="#ffffff" opacity="0.15"/>
+                        <rect x="200" y="170" width="100" height="60" rx="5" fill="#ffffff" opacity="0.3"/>
+                        <circle cx="180" cy="150" r="20" fill="#ffffff" opacity="0.2"/>
+                        <circle cx="320" cy="150" r="20" fill="#ffffff" opacity="0.2"/>
+                        <circle cx="250" cy="250" r="30" fill="#ffffff" opacity="0.3"/>
+                        <path d="M100,100 L150,150 L100,200 Z" fill="#ffffff" opacity="0.2"/>
+                        <path d="M400,100 L350,150 L400,200 Z" fill="#ffffff" opacity="0.2"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">+15</div>
+                    <div class="stat-label">سنوات من الخبرة</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">+500</div>
+                    <div class="stat-label">عميل راضٍ</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">+50</div>
+                    <div class="stat-label">مشروع استثماري</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">+20%</div>
+                    <div class="stat-label">متوسط العائد السنوي</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>من نحن</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>مجموعة الشريك السعودي للإستثمار</h3>
+                    <p>تأسست مجموعة الشريك السعودي للإستثمار عام 2008 لتكون واحدة من الشركات الرائدة في مجال الاستثمار في المملكة العربية السعودية. نحن نسعى جاهدين لتقديم حلول استثمارية مبتكرة تلبي احتياجات عملائنا وتحقق أهدافهم المالية.</p>
+                    <p>نؤمن بأن النجاح يأتي من خلال الشراكة الحقيقية مع عملائنا، حيث نعمل معًا لبناء استراتيجيات استثمارية طويلة الأمد تحقق النمو المستدام والعوائد المجزية.</p>
+                    
+                    <div class="values-list">
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <span>الشفافية</span>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <span>الابتكار</span>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <span>الاستدامة</span>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <span>الالتزام</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-card-wrapper">
+                    <div class="about-card">
+                        <div class="about-card-item">
+                            <h4>رؤيتنا</h4>
+                            <p>أن نكون الشريك الاستثماري الأول والأكثر موثوقية في المملكة العربية السعودية، ونساهم في تحقيق رؤية 2030 من خلال استثمارات مستدامة ومبتكرة.</p>
+                        </div>
+                        <div class="about-card-item">
+                            <h4>رسالتنا</h4>
+                            <p>تقديم حلول استثمارية متكاملة تلبي احتياجات عملائنا وتحقق أهدافهم المالية، مع الالتزام بأعلى معايير الشفافية والمهنية.</p>
+                        </div>
+                        <div class="about-card-item">
+                            <h4>قيمنا</h4>
+                            <p>النزاهة، الابتكار، التميز، الشراكة الحقيقية، والمسؤولية الاجتماعية.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>خدماتنا</h2>
+                <p>نقدم مجموعة متنوعة من الخدمات الاستثمارية المصممة لتلبية احتياجات عملائنا وتحقيق أهدافهم المالية</p>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>إدارة الأصول</h3>
+                    <p>نقدم خدمات إدارة الأصول المتخصصة لتنمية استثمارات عملائنا وتحقيق أهدافهم المالية طويلة الأجل.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>الاستثمار العقاري</h3>
+                    <p>نوفر فرص استثمارية متميزة في القطاع العقاري بمختلف أنواعه، مع التركيز على المشاريع ذات العوائد المستدامة.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>الاستشارات المالية</h3>
+                    <p>نقدم استشارات مالية متخصصة تساعد عملائنا على اتخاذ القرارات الاستثمارية الصحيحة وتحقيق أهدافهم المالية.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>تمويل المشاريع</h3>
+                    <p>نوفر حلول تمويلية مبتكرة للمشاريع الواعدة، ونساهم في نموها وتطورها لتحقيق عوائد مجزية.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>الاستثمار الدولي</h3>
+                    <p>نساعد عملائنا على تنويع استثماراتهم عالمياً من خلال فرص استثمارية مدروسة في أسواق عالمية مختلفة.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>الاستثمار في الشركات الناشئة</h3>
+                    <p>نستثمر في الشركات الناشئة الواعدة ونقدم لها الدعم اللازم لتحقيق النمو والنجاح.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Portfolio Section -->
+    <section id="investments" class="investments-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>محفظتنا الاستثمارية</h2>
+                <p>نفخر بتنوع محفظتنا الاستثمارية التي تشمل مختلف القطاعات الواعدة</p>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="investments-grid">
+                <div class="investment-card">
+                    <div class="investment-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="investment-content">
+                        <h3>القطاع العقاري</h3>
+                        <p>استثمارات متنوعة في المشاريع السكنية والتجارية والفندقية في مختلف مناطق المملكة.</p>
+                        <div class="investment-progress">
+                            <span class="progress-label">30% من المحفظة</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 30%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="investment-card">
+                    <div class="investment-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <div class="investment-content">
+                        <h3>القطاع الصناعي</h3>
+                        <p>استثمارات في مصانع ومشاريع صناعية متنوعة تدعم التنمية الاقتصادية في المملكة.</p>
+                        <div class="investment-progress">
+                            <span class="progress-label">25% من المحفظة</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 25%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="investment-card">
+                    <div class="investment-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="investment-content">
+                        <h3>قطاع الرعاية الصحية</h3>
+                        <p>استثمارات في مستشفيات ومراكز طبية ومشاريع صحية متطورة تخدم المجتمع.</p>
+                        <div class="investment-progress">
+                            <span class="progress-label">15% من المحفظة</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 15%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="investment-card">
+                    <div class="investment-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="investment-content">
+                        <h3>قطاع التعليم</h3>
+                        <p>استثمارات في مدارس وجامعات ومراكز تدريب تساهم في تطوير التعليم في المملكة.</p>
+                        <div class="investment-progress">
+                            <span class="progress-label">10% من المحفظة</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 10%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="investment-card">
+                    <div class="investment-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="investment-content">
+                        <h3>التقنية والابتكار</h3>
+                        <p>استثمارات في شركات تقنية ناشئة ومشاريع ابتكارية تدعم التحول الر
