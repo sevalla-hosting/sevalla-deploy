@@ -21,8 +21,8 @@ const initDeployment = async () => {
       const params = {
         app_id: appId,
         branch: branch ? branch : undefined,
-        isRestart: isRestart !== undefined ? isRestart : undefined,
-        dockerImage: dockerImage ? dockerImage : undefined,
+        is_restart: isRestart !== undefined ? isRestart : undefined,
+        docker_image: dockerImage ? dockerImage : undefined,
       }
       const resp = await fetch(`https://api.sevalla.com/v2/applications/deployments`, {
         method: 'POST',
