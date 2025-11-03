@@ -1,6 +1,6 @@
 {
   "name": "sevalla-github-action",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A GitHub Action to deploy and promote Sevalla apps and static sites.",
   "main": "src/index.js",
   "scripts": {
