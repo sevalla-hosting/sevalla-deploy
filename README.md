@@ -1,6 +1,6 @@
 <div align="center">
 
-# Sevalla Deploy
+# Sevalla GitHub Action
 
 **Deploy and promote Sevalla apps and static sites from GitHub Actions.**
 
