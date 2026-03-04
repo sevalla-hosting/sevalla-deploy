@@ -60,7 +60,7 @@ Get your API key from [app.sevalla.com/api-keys](https://app.sevalla.com/api-key
 
 ```yaml
 jobs:
-  deploy:
+  deploy-app:
     runs-on: ubuntu-latest
     steps:
       - uses: sevalla-hosting/sevalla-deploy@v2.0.0
@@ -76,36 +76,22 @@ jobs:
 
 ```yaml
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: sevalla-hosting/sevalla-deploy@v2.0.0
-        with:
-          action: deploy-app
-          deploy-hook-url: ${{ secrets.DEPLOY_HOOK_URL }}
-```
-
-### Deploy a Docker Image
-
-```yaml
-jobs:
-  deploy:
+  deploy-app:
     runs-on: ubuntu-latest
     steps:
       - uses: sevalla-hosting/sevalla-deploy@v2.0.0
         with:
           action: deploy-app
           sevalla-token: ${{ secrets.SEVALLA_TOKEN }}
-          app-id: your-app-id
-          docker-image: registry.example.com/app:latest
+          deploy-hook-url: https://api.sevalla.com/hooks/xyz
           wait-for-finish: true
 ```
 
-### Promote via Pipeline
+### Promote an App
 
 ```yaml
 jobs:
-  promote:
+  promote-app:
     runs-on: ubuntu-latest
     steps:
       - uses: sevalla-hosting/sevalla-deploy@v2.0.0
@@ -122,7 +108,7 @@ jobs:
 
 ```yaml
 jobs:
-  deploy:
+  deploy-static-site:
     runs-on: ubuntu-latest
     steps:
       - uses: sevalla-hosting/sevalla-deploy@v2.0.0
@@ -141,13 +127,15 @@ GitHub Actions Workflow
        │
        │  action: deploy-app | promote-app | deploy-static-site
        ▼
-┌─────────────────────────────┐
-│  sevalla-deploy             │
-│                             │
-│  1. Trigger deployment      │──▶ POST /v3/applications/{id}/deployments
-│  2. Poll until complete     │──▶ GET  /v3/applications/{id}/deployments/{id}
-│  3. Output deployment ID    │
-└─────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────┐
+│  sevalla-deploy                                                  │
+│                                                                  │
+│  deploy-app          POST /v3/applications/{id}/deployments      │
+│  promote-app         POST /v3/pipelines/{id}/promote             │
+│  deploy-static-site  POST /v3/static-sites/{id}/deployments      │
+│                                                                  │
+│  wait-for-finish     GET  /v3/.../deployments/{deployment_id}    │
+└──────────────────────────────────────────────────────────────────┘
 ```
 
 When `wait-for-finish` is enabled, the action polls every 5 seconds until the deployment reaches a terminal status (`success`, `failed`, `cancelled`, or `skipped`). The action fails if the deployment doesn't succeed.
