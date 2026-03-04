@@ -1,32 +1,60 @@
+<div align="center">
+
 # Sevalla GitHub Action
 
-**Easily deploy and promote Sevalla apps and static sites directly from your GitHub workflow.**
+**Deploy and promote Sevalla apps and static sites from GitHub Actions.**
 
-## Features
+[![CI](https://github.com/sevalla-hosting/sevalla-deploy/actions/workflows/ci.yml/badge.svg)](https://github.com/sevalla-hosting/sevalla-deploy/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Node.js](https://img.shields.io/badge/Node.js-20+-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
+[![Sevalla API](https://img.shields.io/badge/Sevalla_API-v3-FF6723)](https://api-docs.sevalla.com)
 
-- Trigger Sevalla app deployment (via token or deploy hook)
-- Promote deployments between Sevalla apps
-- Deploy static sites
-- Wait for deployment to finish (optional)
-- Outputs deployment/promotion ID
+</div>
+
+---
+
+A GitHub Action that triggers deployments and promotions on [Sevalla](https://sevalla.com) infrastructure. Supports application deployments (via API token or deploy hook), static site deployments, and pipeline promotions with optional polling until completion.
+
+## Quick Start
+
+```yaml
+- uses: sevalla-hosting/sevalla-deploy@v2.0.0
+  with:
+    action: deploy-app
+    sevalla-token: ${{ secrets.SEVALLA_TOKEN }}
+    app-id: your-app-id
+    wait-for-finish: true
+```
+
+Get your API key from [app.sevalla.com/api-keys](https://app.sevalla.com/api-keys).
 
 ## Inputs
 
-| Name                | Required | Description                                       |
-|---------------------|----------|---------------------------------------------------|
-| action              | Yes      | deploy-app, promote-app, or deploy-static-site    |
-| sevalla-token       | Optional | Sevalla API token                                 |
-| app-id              | Optional | App ID for deployment                             |
-| static-site-id      | Optional | Static Site ID for deployment                     |
-| source-app-id       | Optional | Source App ID for promotion                       |
-| target-app-ids      | Optional | Comma separated list of target App IDs (promotion)|
-| branch              | Optional | Branch to deploy                                  |
-| docker-image        | Optional | Docker image to deploy                            |
-| is-restart          | Optional | true/false: Restart after deployment              |
-| wait-for-finish     | Optional | true/false: Wait for process to finish            |
-| deploy-hook-url     | Optional | Use app deploy hook instead of token/app-id       |
+| Name | Required | Description |
+| --- | --- | --- |
+| `action` | Yes | `deploy-app`, `promote-app`, or `deploy-static-site` |
+| `sevalla-token` | Yes* | Sevalla API token |
+| `app-id` | — | Application ID (for `deploy-app`) |
+| `static-site-id` | — | Static site ID (for `deploy-static-site`) |
+| `pipeline-id` | — | Pipeline ID (for `promote-app`) |
+| `source-app-id` | — | Source application ID (for `promote-app`) |
+| `target-app-ids` | — | Comma-separated target app IDs (for `promote-app`) |
+| `branch` | — | Git branch to deploy |
+| `docker-image` | — | Docker image to deploy |
+| `is-restart` | — | Restart without building (`true`/`false`, default `false`) |
+| `wait-for-finish` | — | Poll until deployment completes (`true`/`false`, default `false`) |
+| `deploy-hook-url` | — | Deploy hook URL (alternative to `sevalla-token` + `app-id`) |
 
-## Example Workflows
+*Not required when using `deploy-hook-url` without `wait-for-finish`.
+
+## Outputs
+
+| Name | Description |
+| --- | --- |
+| `deployment-id` | Deployment ID (for `deploy-app` and `deploy-static-site`) |
+| `deployment-ids` | Deployment IDs (for `promote-app`) |
+
+## Examples
 
 ### Deploy an App
 
@@ -35,13 +63,12 @@ jobs:
   deploy-app:
     runs-on: ubuntu-latest
     steps:
-      - uses: sevalla-hosting/sevalla-deploy@v1.0.0
+      - uses: sevalla-hosting/sevalla-deploy@v2.0.0
         with:
           action: deploy-app
           sevalla-token: ${{ secrets.SEVALLA_TOKEN }}
-          app-id: app_123
+          app-id: your-app-id
           branch: main
-          is-restart: false
           wait-for-finish: true
 ```
 
@@ -52,7 +79,7 @@ jobs:
   deploy-app:
     runs-on: ubuntu-latest
     steps:
-      - uses: sevalla-hosting/sevalla-deploy@v1.0.0
+      - uses: sevalla-hosting/sevalla-deploy@v2.0.0
         with:
           action: deploy-app
           sevalla-token: ${{ secrets.SEVALLA_TOKEN }}
@@ -67,12 +94,13 @@ jobs:
   promote-app:
     runs-on: ubuntu-latest
     steps:
-      - uses: sevalla-hosting/sevalla-deploy@v1.0.0
+      - uses: sevalla-hosting/sevalla-deploy@v2.0.0
         with:
           action: promote-app
           sevalla-token: ${{ secrets.SEVALLA_TOKEN }}
-          source-app-id: app_123
-          target-app-ids: app_456,app_789
+          pipeline-id: your-pipeline-id
+          source-app-id: staging-app-id
+          target-app-ids: production-app-id
           wait-for-finish: true
 ```
 
@@ -83,27 +111,35 @@ jobs:
   deploy-static-site:
     runs-on: ubuntu-latest
     steps:
-      - uses: sevalla-hosting/sevalla-deploy@v1.0.0
+      - uses: sevalla-hosting/sevalla-deploy@v2.0.0
         with:
           action: deploy-static-site
           sevalla-token: ${{ secrets.SEVALLA_TOKEN }}
-          static-site-id: ss_123
+          static-site-id: your-static-site-id
           branch: main
           wait-for-finish: true
 ```
 
-## Outputs
+## How It Works
 
-| Name                | Description                                       |
-|---------------------|---------------------------------------------------|
-| deployment-id       | ID of the deployment (for deploy-app)             |
-| promotion-id        | ID of the promotion (for promote-app)             |
-| static-site-id      | ID of the static site deployment (for deploy-static-site) |
-| error               | Error message if any operation fails              |
+```
+GitHub Actions Workflow
+       │
+       │  action: deploy-app | promote-app | deploy-static-site
+       ▼
+┌──────────────────────────────────────────────────────────────────┐
+│  sevalla-deploy                                                  │
+│                                                                  │
+│  deploy-app          POST /v3/applications/{id}/deployments      │
+│  promote-app         POST /v3/pipelines/{id}/promote             │
+│  deploy-static-site  POST /v3/static-sites/{id}/deployments      │
+│                                                                  │
+│  wait-for-finish     GET  /v3/.../deployments/{deployment_id}    │
+└──────────────────────────────────────────────────────────────────┘
+```
 
-## Error Handling
-If any operation fails, the action will output an error message in the `error` output variable. You can use this to handle errors in your workflow.
+When `wait-for-finish` is enabled, the action polls every 5 seconds until the deployment reaches a terminal status (`success`, `failed`, `cancelled`, or `skipped`). The action fails if the deployment doesn't succeed.
+
 ## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-## Contributing
-We welcome contributions! Please read our [Contributing Guidelines](CONTRIBUTING.md) for details on how to get started.
+
+[MIT](LICENSE)

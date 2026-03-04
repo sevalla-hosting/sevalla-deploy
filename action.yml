@@ -14,6 +14,9 @@ inputs:
   static-site-id:
     description: 'Sevalla Static Site ID'
     required: false
+  pipeline-id:
+    description: 'Sevalla Pipeline ID (for promotion)'
+    required: false
   source-app-id:
     description: 'Source App ID (for promotion)'
     required: false
