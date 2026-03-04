@@ -4,7 +4,6 @@
 
 **Deploy and promote Sevalla apps and static sites from GitHub Actions.**
 
-[![CI](https://github.com/sevalla-hosting/sevalla-deploy/actions/workflows/ci.yml/badge.svg)](https://github.com/sevalla-hosting/sevalla-deploy/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Node.js](https://img.shields.io/badge/Node.js-20+-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
 [![Sevalla API](https://img.shields.io/badge/Sevalla_API-v3-FF6723)](https://api-docs.sevalla.com)
