@@ -14,6 +14,6 @@
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-prettier": "^5.5.4",
     "prettier": "^3.5.3",
-    "semantic-release": "^25.0.1"
+    "semantic-release": "^25.0.2"
   }
 }
